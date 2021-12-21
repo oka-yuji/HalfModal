@@ -12,6 +12,7 @@ struct ContentView: View {
     @State var bottomState = CGSize.zero
     @State var showFull = false
     @State var showMenu = false
+    @State var amount = UIScreen.main.bounds
     var body: some View {
         VStack {
             Button {
@@ -22,7 +23,7 @@ struct ContentView: View {
 
             ZStack {
                 ModalView()
-                    .offset(y:show ? 360 : 2000)
+                    .offset(y:show ? 100 : 2000)
                     .offset(y: bottomState.height)
                     .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8))
                 
