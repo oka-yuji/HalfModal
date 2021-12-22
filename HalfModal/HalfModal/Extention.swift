@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomTextFieldModifier: ViewModifier {
+struct CustomModalModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .disableAutocorrection(true)
@@ -19,7 +19,7 @@ struct CustomTextFieldModifier: ViewModifier {
 
 extension View {
     //customTextFieldModifier
-    func customTextFieldModifier() -> some View {
-        modifier(CustomTextFieldModifier())
+    func customModalModifier() -> some View {
+        modifier(CustomModalModifier())
     }
 }
