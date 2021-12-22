@@ -13,6 +13,7 @@
 		282EF3A427719F130057EC37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282EF3A327719F130057EC37 /* Preview Assets.xcassets */; };
 		282EF3AB27719F5A0057EC37 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EF3AA27719F5A0057EC37 /* ModalView.swift */; };
 		283933A42772BC3100E1D016 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283933A32772BC3100E1D016 /* Extention.swift */; };
+		283933A62772EF6600E1D016 /* ModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283933A52772EF6600E1D016 /* ModalViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		282EF3A327719F130057EC37 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		282EF3AA27719F5A0057EC37 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		283933A32772BC3100E1D016 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
+		283933A52772EF6600E1D016 /* ModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				283933A32772BC3100E1D016 /* Extention.swift */,
+				283933A52772EF6600E1D016 /* ModalViewModel.swift */,
 				282EF39C27719F120057EC37 /* HalfModalApp.swift */,
 				282EF39E27719F120057EC37 /* ContentView.swift */,
 				282EF3AA27719F5A0057EC37 /* ModalView.swift */,
@@ -145,6 +148,7 @@
 			files = (
 				283933A42772BC3100E1D016 /* Extention.swift in Sources */,
 				282EF3AB27719F5A0057EC37 /* ModalView.swift in Sources */,
+				283933A62772EF6600E1D016 /* ModalViewModel.swift in Sources */,
 				282EF39F27719F120057EC37 /* ContentView.swift in Sources */,
 				282EF39D27719F120057EC37 /* HalfModalApp.swift in Sources */,
 			);
