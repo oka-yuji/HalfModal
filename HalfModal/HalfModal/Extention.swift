@@ -8,44 +8,38 @@
 import SwiftUI
 
 struct CustomModalModifier: ViewModifier {
-    @Binding var show: Bool
-    @Binding var showFull: Bool
-    @Binding var showMenu: Bool
-    @Binding var bottomState: CGSize
-    @Binding var amount: UIScreen
+    @EnvironmentObject var viewModel: ModalViewModel
     func body(content: Content) -> some View {
         content
             .cornerRadius(20)
-            .offset(y:show ? amount.height * 0.4 : amount.height)
-            .offset(y: bottomState.height)
-            .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.9), value: show)
+            .offset(y:viewModel.show ? viewModel.amount.height * 0.4 : viewModel.amount.height)
+            .offset(y: viewModel.bottomState.height)
+            .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.9), value: viewModel.show)
         
             .gesture(
                 DragGesture().onChanged { value in
-                    self.bottomState = value.translation
-                    if self.showFull {
-                        self.bottomState.height += -300
+                    viewModel.bottomState = value.translation
+                    if viewModel.showFull {
+                        viewModel.bottomState.height += -300
                     }
-                    if self.bottomState.height < -300 {
-                        self.bottomState.height = -300
+                    if viewModel.bottomState.height < -300 {
+                        viewModel.bottomState.height = -300
                     }
                 }
                     .onEnded { value in
-                        if self.bottomState.height > 50 {
-                            self.show = false
-                           // self.showMenu = false
+                        if viewModel.bottomState.height > 50 {
+                            viewModel.show = false
+                            // self.showMenu = false
                         }
-                        if (self.bottomState.height < -100 && !self.showFull) || (self.bottomState.height < -250 && self.showFull) {
-                            self.bottomState.height = -300
-                            self.showFull = true
+                        if (viewModel.bottomState.height < -100 && !viewModel.showFull) || (viewModel.bottomState.height < -250 && viewModel.showFull) {
+                            viewModel.bottomState.height = -300
+                            viewModel.showFull = true
                         } else {
-                            self.bottomState = .zero
-                            self.showFull = false
-                            
+                            viewModel.bottomState = .zero
+                            viewModel.showFull = false
                         }
                     }
             )
-
     }
 }
 

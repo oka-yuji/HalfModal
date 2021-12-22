@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var show = false
-    @State var showFull = false
-    @State var showMenu = false
-    @State var bottomState = CGSize.zero
-    @State var amount = UIScreen.main.bounds
+    @EnvironmentObject var viewModel: ModalViewModel
     var body: some View {
         VStack {
             Button {
-                show.toggle()
+                viewModel.show.toggle()
             } label: {
                 Text("ボタン")
             }
