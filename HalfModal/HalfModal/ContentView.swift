@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State var show = false
-    @State var bottomState = CGSize.zero
     @State var showFull = false
     @State var showMenu = false
+    @State var bottomState = CGSize.zero
     @State var amount = UIScreen.main.bounds
     var body: some View {
         VStack {
@@ -23,9 +23,9 @@ struct ContentView: View {
 
             ZStack {
                 ModalView()
-                    .offset(y:show ? 100 : 2000)
+                    .offset(y:show ? amount.height * 0.4 : amount.height)
                     .offset(y: bottomState.height)
-                    .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8))
+                    .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.9), value: show)
                 
                     .gesture(
                         DragGesture().onChanged { value in
@@ -40,7 +40,7 @@ struct ContentView: View {
                             .onEnded { value in
                                 if self.bottomState.height > 50 {
                                     self.show = false
-                                    self.showMenu = false
+                                   // self.showMenu = false
                                 }
                                 if (self.bottomState.height < -100 && !self.showFull) || (self.bottomState.height < -250 && self.showFull) {
                                     self.bottomState.height = -300
