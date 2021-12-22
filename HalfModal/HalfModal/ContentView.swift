@@ -33,6 +33,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(show: false, showFull: <#Binding<Bool>#>, showMenu: <#Binding<Bool>#>, bottomState: <#Binding<CGSize>#>, amount: <#Binding<UIScreen>#>)
+        ContentView()
     }
 }
