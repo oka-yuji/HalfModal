@@ -16,10 +16,11 @@ struct ContentView: View {
             } label: {
                 Text("ボタン")
             }
-
+            
             ZStack {
                 ZStack {
-                ModalView()
+                    ModalView()
+                        .environmentObject(ModalViewModel())
                 }
                 .customModalModifier()
             }
@@ -30,5 +31,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ModalViewModel())
     }
 }

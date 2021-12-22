@@ -12,6 +12,7 @@ struct HalfModalApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ModalViewModel())
         }
     }
 }
