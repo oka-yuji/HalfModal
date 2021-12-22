@@ -25,36 +25,7 @@ struct ContentView: View {
                 ZStack {
                 ModalView()
                 }
-                    .cornerRadius(20)
-                    .offset(y:show ? amount.height * 0.4 : amount.height)
-                    .offset(y: bottomState.height)
-                    .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.9), value: show)
-                
-                    .gesture(
-                        DragGesture().onChanged { value in
-                            self.bottomState = value.translation
-                            if self.showFull {
-                                self.bottomState.height += -300
-                            }
-                            if self.bottomState.height < -300 {
-                                self.bottomState.height = -300
-                            }
-                        }
-                            .onEnded { value in
-                                if self.bottomState.height > 50 {
-                                    self.show = false
-                                   // self.showMenu = false
-                                }
-                                if (self.bottomState.height < -100 && !self.showFull) || (self.bottomState.height < -250 && self.showFull) {
-                                    self.bottomState.height = -300
-                                    self.showFull = true
-                                } else {
-                                    self.bottomState = .zero
-                                    self.showFull = false
-                                    
-                                }
-                            }
-                    )
+                .customModalModifier()
             }
         }
     }
@@ -62,6 +33,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(show: false, showFull: <#Binding<Bool>#>, showMenu: <#Binding<Bool>#>, bottomState: <#Binding<CGSize>#>, amount: <#Binding<UIScreen>#>)
     }
 }
