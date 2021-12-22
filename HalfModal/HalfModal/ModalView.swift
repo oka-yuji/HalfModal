@@ -10,7 +10,9 @@ import SwiftUI
 struct ModalView: View {
     var body: some View {
         ZStack {
-           Rectangle()
+            RoundedRectangle(cornerRadius: 10)
+                .frame(width: 60, height: 6)
+                .foregroundColor(Color.gray)
         }
         .foregroundColor(Color.green)
         .background(Color.green)

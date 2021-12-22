@@ -22,7 +22,10 @@ struct ContentView: View {
             }
 
             ZStack {
+                ZStack {
                 ModalView()
+                }
+                    .cornerRadius(20)
                     .offset(y:show ? amount.height * 0.4 : amount.height)
                     .offset(y: bottomState.height)
                     .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.9), value: show)
