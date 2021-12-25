@@ -8,9 +8,8 @@
 import SwiftUI
 
 class ModalViewModel: ObservableObject {
-    @Published var show = false
+    @Published var show = true
     @Published var showFull = false
-    @Published var showMenu = false
     @Published var bottomState = CGSize.zero
     @Published var amount = UIScreen.main.bounds
 }

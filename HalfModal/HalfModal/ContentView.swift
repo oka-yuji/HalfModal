@@ -16,14 +16,19 @@ struct ContentView: View {
             } label: {
                 Text("ボタン")
             }
-            
-            ZStack {
+            Spacer()
                 ZStack {
                     ModalView()
                         .environmentObject(ModalViewModel())
+                    VStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 60, height: 6)
+                        .foregroundColor(Color.gray)
+                        Spacer()
+                    }
+                    .offset(y: 20)
                 }
                 .customModalModifier()
-            }
         }
     }
 }

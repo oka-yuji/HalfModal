@@ -29,7 +29,6 @@ struct CustomModalModifier: ViewModifier {
                     .onEnded { value in
                         if viewModel.bottomState.height > 50 {
                             viewModel.show = false
-                            // self.showMenu = false
                         }
                         if (viewModel.bottomState.height < -100 && !viewModel.showFull) || (viewModel.bottomState.height < -250 && viewModel.showFull) {
                             viewModel.bottomState.height = -300

@@ -11,15 +11,14 @@ struct ModalView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(Color.green)
+                .foregroundColor(Color.green.opacity(0.3))
                 .background(Color.green)
             VStack {
-            RoundedRectangle(cornerRadius: 10)
-                .frame(width: 60, height: 6)
-                .foregroundColor(Color.gray)
+                Text("top")
                 Spacer()
+                Text("bottom")
+                    
             }
-            .offset(y: 20)
         }
     }
 }
