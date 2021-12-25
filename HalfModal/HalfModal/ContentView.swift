@@ -13,6 +13,7 @@ struct ContentView: View {
         VStack {
             Button {
                 viewModel.show.toggle()
+                viewModel.bottomState = .zero
             } label: {
                 Text("ボタン")
             }

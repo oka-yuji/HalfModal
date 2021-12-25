@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomModalModifier: ViewModifier {
     @EnvironmentObject var viewModel: ModalViewModel
+    @State var fullAmount = 0.35
     func body(content: Content) -> some View {
         content
             .cornerRadius(20)
@@ -20,10 +21,10 @@ struct CustomModalModifier: ViewModifier {
                 DragGesture().onChanged { value in
                     viewModel.bottomState = value.translation
                     if viewModel.showFull {
-                        viewModel.bottomState.height += -300
+                        viewModel.bottomState.height += -(viewModel.amount.height * fullAmount)
                     }
-                    if viewModel.bottomState.height < -300 {
-                        viewModel.bottomState.height = -300
+                    if viewModel.bottomState.height < -(viewModel.amount.height * fullAmount) {
+                        viewModel.bottomState.height = -(viewModel.amount.height * fullAmount)
                     }
                 }
                     .onEnded { value in
@@ -31,7 +32,7 @@ struct CustomModalModifier: ViewModifier {
                             viewModel.show = false
                         }
                         if (viewModel.bottomState.height < -100 && !viewModel.showFull) || (viewModel.bottomState.height < -250 && viewModel.showFull) {
-                            viewModel.bottomState.height = -300
+                            viewModel.bottomState.height = -(viewModel.amount.height * fullAmount)
                             viewModel.showFull = true
                         } else {
                             viewModel.bottomState = .zero
@@ -47,5 +48,13 @@ extension View {
     //customTextFieldModifier
     func customModalModifier() -> some View {
         modifier(CustomModalModifier())
+    }
+}
+
+
+struct CustomModalModifier_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .environmentObject(ModalViewModel())
     }
 }
